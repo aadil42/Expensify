@@ -55,7 +55,7 @@ type IconProps = {
 
 function Icon({
     src,
-    width = variables.iconSizeNormal,
+    width = variables.iconSizeNormal, 
     height = variables.iconSizeNormal,
     fill = undefined,
     small = false,
@@ -75,6 +75,7 @@ function Icon({
     const iconStyles = [StyleUtils.getWidthAndHeightStyle(width ?? 0, height), IconWrapperStyles, styles.pAbsolute, additionalStyles];
 
     if (inline) {
+
         return (
             <View
                 testID={testID}

@@ -16,6 +16,10 @@ import RenderHTML from './RenderHTML';
 import Text from './Text';
 import Tooltip from './Tooltip';
 
+
+import variables from '@styles/variables';
+
+
 type BannerProps = {
     /** Text to display in the banner. */
     text?: string;
@@ -25,6 +29,10 @@ type BannerProps = {
 
     /** The icon asset to display to the left of the text */
     icon?: IconAsset | null;
+
+    iconHeight?: number;
+
+    iconWidth?: number;
 
     /** Should this component render the left-aligned exclamation icon? */
     shouldShowIcon?: boolean;
@@ -59,6 +67,8 @@ function Banner({
     shouldRenderHTML = false,
     shouldShowIcon = false,
     shouldShowCloseButton = false,
+    iconHeight,
+    iconWidth,
 }: BannerProps) {
     const theme = useTheme();
     const styles = useThemeStyles();
@@ -85,9 +95,12 @@ function Banner({
                         <View style={[styles.flexRow, styles.flex1, styles.mw100, styles.alignItemsCenter]}>
                             {shouldShowIcon && icon && (
                                 <View style={[styles.mr3]}>
+                                    {/* <h1>ooh lala</h1> */}
                                     <Icon
                                         src={icon}
                                         fill={StyleUtils.getIconFillColor(getButtonState(shouldHighlight))}
+                                        width={iconHeight}
+                                        height={iconWidth}
                                     />
                                 </View>
                             )}
@@ -116,6 +129,8 @@ function Banner({
                                     <Icon
                                         src={Expensicons.Close}
                                         fill={theme.icon}
+                                        // width={iconHeight}
+                                        // height={iconWidth}
                                     />
                                 </PressableWithFeedback>
                             </Tooltip>
