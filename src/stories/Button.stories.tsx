@@ -8,6 +8,10 @@ import Text from '@components/Text';
 
 type ButtonStory = StoryFn<typeof Button>;
 
+
+// icons
+import appleSVG from "@assets/images/apple.svg"
+
 /**
  * We use the Component Story Format for writing stories. Follow the docs here:
  *
@@ -26,6 +30,12 @@ function Template(props: ButtonProps) {
 // Arguments can be passed to the component by binding
 // See: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Default: ButtonStory = Template.bind({});
+
+
+// custom button to check out how it works
+
+const CustomBtn: ButtonStory = Template.bind({});
+
 const Loading: ButtonStory = Template.bind({});
 function PressOnEnter(props: ButtonProps) {
     const [text, setText] = useState('');
@@ -61,6 +71,55 @@ function PressOnEnterWithBubbling(props: ButtonProps) {
     );
 }
 
+
+CustomBtn.args = {
+    text: 'This is Custom',
+    success: true,
+    iconRight: appleSVG,
+    shouldShowRightIcon: true,
+    isSplitButton: true,
+    isContentCentered: true,
+    icon: appleSVG,
+    accessibilityLabel: "haoaha",
+    id: "23joif",
+    isLongPressDisabled: true,
+    shouldRemoveLeftBorderRadius: true,
+    shouldRemoveRightBorderRadius: true,
+    link: true,
+    danger: true,
+    shouldUseDefaultHover: true,
+    allowBubble: true,
+    iconFill: "#1a1a1a",
+    iconHoverFill: "#8B0000",
+    iconStyles: {
+        borderColor: "blue",
+        borderStyle:  "solid",
+        borderWidth: 2,
+        borderBottomRightRadius: 5,
+    },
+    iconRightStyles: {
+        borderColor: "blue",
+        borderStyle:  "solid",
+        borderWidth: 2,
+        borderBottomRightRadius: 5,
+    },
+    small: true,
+    isLoading: false,
+    // onMouseDown: () => {
+    //     alert('mouse down babay!');
+    // },
+    onMouseUp: () =>{
+        alert('Im up baby!');
+    },
+    pressOnEnter: true,
+    onPress: () => {
+        alert("I'm pressed bitch");
+    },
+    onLongPress: () => {
+        alert("I'm long pressed bitch")
+    }
+}
+
 Default.args = {
     text: 'Save & Continue',
     success: true,
@@ -85,4 +144,4 @@ PressOnEnterWithBubbling.args = {
 };
 
 export default story;
-export {Default, Loading, PressOnEnter, PressOnEnterWithBubbling};
+export {CustomBtn, Default, Loading, PressOnEnter, PressOnEnterWithBubbling};

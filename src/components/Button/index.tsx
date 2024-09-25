@@ -71,6 +71,8 @@ type ButtonProps = Partial<ChildrenProps> & {
     /** Callback that is called when mousedown is triggered. */
     onMouseDown?: (e: React.MouseEvent<Element, MouseEvent>) => void;
 
+    onMouseUp?: (e: React.MouseEvent<Element, MouseEvent>) => void;
+
     /** Call the onPress function when Enter key is pressed */
     pressOnEnter?: boolean;
 
@@ -204,7 +206,8 @@ function Button(
         onPressIn = () => {},
         onPressOut = () => {},
         onMouseDown = undefined,
-
+        onMouseUp = undefined,
+        
         pressOnEnter = false,
         enterKeyEventListenerPriority = 0,
 
