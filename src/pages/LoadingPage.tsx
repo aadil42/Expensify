@@ -13,15 +13,18 @@ type LoadingPageProps = {
 
 function LoadingPage({onBackButtonPress, title}: LoadingPageProps) {
     const styles = useThemeStyles();
+    // return <h1>Loading...</h1>;
     return (
-        <ScreenWrapper testID={LoadingPage.displayName}>
-            <HeaderWithBackButton
+        <>
+            <ScreenWrapper testID={LoadingPage.displayName}>
+                <HeaderWithBackButton
                 onBackButtonPress={onBackButtonPress}
                 shouldShowBackButton
                 title={title}
-            />
-            <FullScreenLoadingIndicator style={[styles.flex1, styles.pRelative]} />
-        </ScreenWrapper>
+                />
+                <FullScreenLoadingIndicator style={[styles.flex1, styles.pRelative]} />
+            </ScreenWrapper>
+        </>
     );
 }
 
